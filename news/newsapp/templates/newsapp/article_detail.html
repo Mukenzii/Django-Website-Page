@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+{% include 'components/_navbar.html' %}
+{% endblock navbar %}
+
+{% block sidebar %}
+{% include 'components/_sidebar.html' %}
+{% endblock sidebar %}
+
+
+{% block article_detail %}
+
+<div class="container">
+
+    <div class="d-flex justify-content-center mt-5">
+        {% block sidecard %}
+        {% include 'components/_side_card.html' %}
+        {% endblock sidecard %}
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        Kategoriyasi: {{ article.category.title }}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img src="{{ article.get_photo }}" class="card-img-top" alt="">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.content }}</p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between">
+                    <div>
+                        Yaratilgan sana: {{ article.created_at|date:'d-m-Y' }}
+                    </div>
+                    <div>
+                        Yangilangan sana: {{ article.updated_at|date:'d-m-Y' }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock article_detail %}
+

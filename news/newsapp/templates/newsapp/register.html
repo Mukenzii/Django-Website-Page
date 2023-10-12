@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block navbar %}
+{% include 'components/_navbar.html' %}
+{% endblock navbar %}
+
+{% block main %}
+<div class="d-flex justify-content-between container">
+    <div class="registration" style="width: 400px; border: solid 2px grey; padding: 40px; margin-bottom: 40px;">
+        <h2 class="form-title">Ro'yxatdan o'tish</h2>
+        <form action="{% url 'register' %}" class="login-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ registration_form.username }}
+            </div>
+            <div class="form-group">
+                {{ registration_form.password1 }}
+            </div>
+            <div class="form-group">
+                {{ registration_form.password2 }}
+            </div>
+            <button type="submit" class="btn btn-primary">Ro'yxatdan o'tish</button>
+        </form>
+    </div>
+</div>
+
+{% endblock main %}
+
+

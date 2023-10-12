@@ -1,0 +1,15 @@
+{% load newsapp_tags %}
+<div class="card" style="width: 0.01rem;">
+    <div class="d-flex justify-content-between">
+        {% get_categories as categories %}
+        {% for category in categories %}
+        <ul class="list-group list-group-flush">
+            <button type="button" class="btn btn-light relative">
+                <a class="nav-link" href="{% url 'category' category.id %}">
+                    {{ category.title }}
+            </button>
+            </a>
+        </ul>
+        {% endfor %}
+    </div>
+</div>

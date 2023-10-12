@@ -1,0 +1,15 @@
+<div class="card" style="width: 15rem;">
+    <div class="col-10">
+        <div class="d-flex justify-content-between">
+            <div class="container">
+                <div class="card-body">
+                    {% for article in articles|slice:"6" %}
+                    <h5>-----------------</h5>
+                    <span>{{ article.created_at|date:'Y-M-D-H' }}</span>
+                    <h5 class="card-title"><a href="{% url 'article_detail' article.pk %}">{{ article.title|truncatewords:8 }}</h5></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
